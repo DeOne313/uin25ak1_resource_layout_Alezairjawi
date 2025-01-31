@@ -94,3 +94,129 @@ const resources = [
         ]
     },
 ]
+
+const HTMLInfo = resources.filter((html) => html.category === "HTML")
+
+const CSSInfo = resources.filter((css) => css.category === "CSS")
+
+const javascriptInfo = resources.filter((javascript) => javascript.category === "JavaScript")
+
+const ReactInfo = resources.filter((react) => react.category === "React")
+
+const SHCMSInfo = resources.filter((shcms) => shcms.category === "Sanity and headless CMS")
+
+const main = document.getElementById("main")
+const knpHTML = document.getElementById("knpHTML")
+const knpCSS = document.getElementById("knpCSS")
+const knpJScript = document.getElementById("knpJScript")
+const knpReact = document.getElementById("knpReact")
+const knpSHCMS = document.getElementById("knpSHCMS")
+
+knpHTML.classList.add("active");
+
+function HTMLmap(){
+    HTMLInfo.map((html) => {
+        let links =``;
+        html.sources.map((link) => {
+            links += `<li><a target="blank" href="${link.url}">${link.title}</a></li>`;
+        });
+        main.innerHTML = `<h2>${html.category}</h2>
+        <p>${html.text}</p>
+        <ul>
+        ${links}
+        </ul>`
+    })
+
+    knpHTML.classList.add("active");
+
+    knpCSS.classList.remove("active");
+    knpJScript.classList.remove("active");
+    knpReact.classList.remove("active");
+    knpSHCMS.classList.remove("active");
+}
+
+function CSSmap(){
+    CSSInfo.map((css) => {
+        let links =``;
+        css.sources.map((link) => {
+            links += `<li><a target="blank" href="${link.url}">${link.title}</a></li>`;
+        });
+        main.innerHTML = `<h2>${css.category}</h2>
+        <p>${css.text}</p>
+        <ul>
+        ${links}
+        </ul>`
+    })
+
+    knpCSS.classList.add("active");
+
+    knpHTML.classList.remove("active");
+    knpJScript.classList.remove("active");
+    knpReact.classList.remove("active");
+    knpSHCMS.classList.remove("active");
+}
+
+function JavaScriptmap(){
+    javascriptInfo.map((javascript) => {
+        let links =``;
+        javascript.sources.map((link) => {
+            links += `<li><a target="blank" href="${link.url}">${link.title}</a></li>`;
+        });
+        main.innerHTML = `<h2>${javascript.category}</h2>
+        <p>${javascript.text}</p>
+        <ul>
+        ${links}
+        </ul>`
+    })
+
+    knpJScript.classList.add("active");
+
+    knpHTML.classList.remove("active");
+    knpCSS.classList.remove("active");
+    knpReact.classList.remove("active");
+    knpSHCMS.classList.remove("active");
+}
+
+function Reactmap(){
+    ReactInfo.map((react) => {
+        let links =``;
+        react.sources.map((link) => {
+            links += `<li><a target="blank" href="${link.url}">${link.title}</a></li>`;
+        });
+        main.innerHTML = `<h2>${react.category}</h2>
+        <p>${react.text}</p>
+        <ul>
+        ${links}
+        </ul>`
+    })
+
+    knpReact.classList.add("active");
+
+    knpHTML.classList.remove("active");
+    knpCSS.classList.remove("active");
+    knpJScript.classList.remove("active");
+    knpSHCMS.classList.remove("active");
+}
+
+function SHCMSmap(){
+    SHCMSInfo.map((shcms) => {
+        let links =``;
+        shcms.sources.map((link) => {
+            links += `<li><a target="blank" href="${link.url}">${link.title}</a></li>`;
+        });
+        main.innerHTML = `<h2>${shcms.category}</h2>
+        <p>${shcms.text}</p>
+        <ul>
+        ${links}
+        </ul>`
+    })
+
+    knpSHCMS.classList.add("active");
+
+    knpHTML.classList.remove("active");
+    knpCSS.classList.remove("active");
+    knpJScript.classList.remove("active");
+    knpReact.classList.remove("active");
+}
+
+HTMLmap()
